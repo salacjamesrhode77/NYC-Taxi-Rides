@@ -1,0 +1,1 @@
+{{ codegen.generate_source(schema_name= 'zoomcamp', database_name= 'etl-on-cloud-471106') }}
