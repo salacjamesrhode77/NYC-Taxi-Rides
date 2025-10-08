@@ -18,9 +18,11 @@ models:
         description: ""
         tests:
           - unique:
-              severity: warn
+              config:
+                severity: warn
           - not_null:
-              severity: warn
+              config:
+                severity: warn
 
       - name: vendorid
         data_type: int64
@@ -35,18 +37,22 @@ models:
         description: ""
         tests:
           - relationships:
-              field: locationid
-              to: ref('taxi_zone_lookup')
-              severity: warn
+              arguments:
+                field: locationid
+                to: ref('taxi_zone_lookup')
+              config:
+                severity: warn
 
       - name: dropoff_locationid
         data_type: int64
         description: ""
         tests:
-          -  relationships:
-              field: locationid
-              to: ref('taxi_zone_lookup')
-              severity: warn
+          - relationships:
+              arguments:
+                field: locationid
+                to: ref('taxi_zone_lookup')
+              config:
+                severity: warn
 
       - name: pickup_datetime
         data_type: timestamp
@@ -109,9 +115,11 @@ models:
         description: ""
         tests:
           - accepted_values:
-              values: "{{ var('payment_type_values') }}"
-              severity: warn
-              quote: false
+              arguments:
+                values: "{{ var('payment_type_values') }}"
+                quote: false
+              config:
+                severity: warn
 
       - name: payment_type_description
         data_type: string
@@ -137,18 +145,22 @@ models:
         description: ""
         tests:
           - relationships:
-              field: locationid
-              to: ref('taxi_zone_lookup')
-              severity: warn
+              arguments:
+                field: locationid
+                to: ref('taxi_zone_lookup')
+              config:
+                severity: warn
 
       - name: dropoff_locationid
         data_type: int64
         description: ""
         tests:
           - relationships:
-              field: locationid
-              to: ref('taxi_zone_lookup')
-              severity: warn
+              arguments:
+                field: locationid
+                to: ref('taxi_zone_lookup')
+              config:
+                severity: warn
 
       - name: pickup_datetime
         data_type: timestamp
@@ -211,9 +223,11 @@ models:
         description: ""
         tests:
           - accepted_values:
-              values: "{{ var('payment_type_values') }}"
-              severity: warn
-              quote: false
+              arguments:
+                values: "{{ var('payment_type_values') }}"
+                quote: false
+              config:
+                severity: warn
 
       - name: payment_type_description
         data_type: string
